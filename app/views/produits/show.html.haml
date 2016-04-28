@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Nom:
+  = @produit.nom
+%p
+  %b Disponibilite:
+  = @produit.disponibilite
+%p
+  %b Description:
+  = @produit.description
+%p
+  %b Image:
+  = @produit.image
+%p
+  %b Ean:
+  = @produit.ean
+
+= link_to 'Edit', edit_produit_path(@produit)
+\|
+= link_to 'Back', produits_path

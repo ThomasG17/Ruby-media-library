@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Date debut:
+  = @location.date_debut
+%p
+  %b Date fin:
+  = @location.date_fin
+
+= link_to 'Edit', edit_location_path(@location)
+\|
+= link_to 'Back', locations_path

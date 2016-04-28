@@ -1,0 +1,9 @@
+= simple_form_for(@location) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :date_debut
+    = f.input :date_fin
+
+  .form-actions
+    = f.button :submit
