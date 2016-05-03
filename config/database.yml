@@ -8,7 +8,7 @@ default: &default
   adapter: mysql2
   database: ruby_media_library
   username: root
-  password: thomas
+  password: 
   host: localhost
   encoding: utf8
   collation: utf8_unicode_ci
