@@ -36,7 +36,7 @@ gem 'will_paginate-bootstrap'
 
 gem 'activeadmin', github: 'activeadmin'
 
-gem 'cancan' # or cancancan
+gem 'cancancan'
 
 gem 'draper'
 
