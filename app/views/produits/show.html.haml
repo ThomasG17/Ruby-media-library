@@ -16,6 +16,10 @@
   %b Ean:
   = @produit.ean
 
+%p
+  %b Image du produit:
+  = image_tag @produit.product_image.url
+
 = link_to 'Edit', edit_produit_path(@produit)
 \|
 = link_to 'Back', produits_path
