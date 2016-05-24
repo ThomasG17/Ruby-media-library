@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %title RubyMediaLibrary
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          %ul.nav.navbar-nav.navbar-left
+            %li
+              = link_to('home', root_path)
+          %ul.nav.navbar-nav.navbar-right
+            -if(!user_signed_in?)
+              %li
+                = link_to('Connexion', new_user_session_url)
+              %li
+                = link_to('Enregistrement', new_user_registration_url)
+            -else
+              %li
+                -if(current_user)
+                  = link_to('Profil', edit_user_registration_url)
+              %li
+                = link_to('Sign out', destroy_user_session_url, method: :delete)
+
+
+    %p.notice= notice
+    %p.alert= alert
+    = yield

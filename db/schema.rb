@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20160503151000) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -44,9 +45,10 @@
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
->>>>>>> 544482675e930025e2e61701dff19116fa3a852b
 
   create_table "locations", force: :cascade do |t|
+    t.datetime "date_debut"
+    t.datetime "date_fin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,10 +69,8 @@
     t.datetime "updated_at",             null: false
   end
 
-<<<<<<< HEAD
-=======
   create_table "users", force: :cascade do |t|
-    t.string   "name",                   limit: 255, default: "", null: false
+    t.string   "firstname",              limit: 255, default: "", null: false
     t.string   "lastname",               limit: 255, default: "", null: false
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -87,9 +87,8 @@
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["firstname"], name: "index_users_on_firstname", unique: true, using: :btree
   add_index "users", ["lastname"], name: "index_users_on_lastname", unique: true, using: :btree
-  add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
->>>>>>> 544482675e930025e2e61701dff19116fa3a852b
 end

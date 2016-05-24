@@ -10,6 +10,7 @@ class ProduitsController < ApplicationController
   # GET /produits/1
   # GET /produits/1.json
   def show
+    set_produit
   end
 
   # GET /produits/new
@@ -19,6 +20,7 @@ class ProduitsController < ApplicationController
 
   # GET /produits/1/edit
   def edit
+    set_produit
   end
 
   # POST /produits
