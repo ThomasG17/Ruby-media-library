@@ -5,6 +5,7 @@
     %tr
       %th Date debut
       %th Date fin
+      %th Produit
       %th
       %th
       %th
@@ -14,6 +15,7 @@
       %tr
         %td= location.date_debut
         %td= location.date_fin
+        %td= location.produit.nil? ? "Vide" : location.produit.nom
         %td= link_to 'Show', location
         %td= link_to 'Edit', edit_location_path(location)
         %td= link_to 'Destroy', location, :method => :delete, :data => { :confirm => 'Are you sure?' }
