@@ -286,17 +286,18 @@ header .header-content .header-content-inner p {
     position: relative;
     margin: 0 auto;
     max-width: 650px;
+    width:60%;
 }
 
 .product-box .product-box-focus {
     display: block;
     position: absolute;
     bottom: 0;
-    width: 60%;
+    width: 100%;
     margin:auto;
     height: 100%;
     text-align: center;
-    margin-left:20%;
+    /*margin-left:20%;*/
     color: #fff;
     opacity: 0;
     /*background-color: rgba(240,95,64,.9);*/
@@ -510,7 +511,7 @@ body {
 }
 
 .img-product{
-    max-width:60% !important;
+    max-width:100% !important;
     margin:auto;
     margin-bottom:15%;
 }
