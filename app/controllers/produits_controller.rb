@@ -1,5 +1,6 @@
 class ProduitsController < ApplicationController
   before_action :set_produit, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Home", :root_path
 
   # GET /produits
   # GET /produits.json
@@ -11,6 +12,7 @@ class ProduitsController < ApplicationController
   # GET /produits/1.json
   def show
     set_produit
+    add_breadcrumb @produit.nom
   end
 
   # GET /produits/new

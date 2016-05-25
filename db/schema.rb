@@ -54,13 +54,13 @@ ActiveRecord::Schema.define(version: 20160525075235) do
   end
 
   create_table "produits", force: :cascade do |t|
-    t.string   "nom",           limit: 255
+    t.string   "nom",                        limit: 255
     t.boolean  "disponibilite"
-    t.text     "description",   limit: 65535
-    t.text     "image",         limit: 65535
-    t.string   "ean",           limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.text     "description",                limit: 65535
+    t.text     "image",                      limit: 65535
+    t.string   "ean",                        limit: 255
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "product_image_file_name",    limit: 255
     t.string   "product_image_content_type", limit: 255
     t.integer  "product_image_file_size",    limit: 4

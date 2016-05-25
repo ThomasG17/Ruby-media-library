@@ -33,6 +33,7 @@
             %ul.nav.navbar-nav.navbar-left
               %li
                 = link_to('Accueil', root_path)
+    = render_breadcrumbs :separator => ' / '
     %p.notice= notice
     %p.alert= alert
     = yield
