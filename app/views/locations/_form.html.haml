@@ -4,6 +4,7 @@
   .form-inputs
     = f.input :date_debut
     = f.input :date_fin
+    = f.association :produit, label_method: :nom
 
   .form-actions
     = f.button :submit

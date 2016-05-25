@@ -11,8 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525142105) do
-
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
     t.text     "body",          limit: 65535
@@ -49,9 +47,12 @@ ActiveRecord::Schema.define(version: 20160525142105) do
   create_table "locations", force: :cascade do |t|
     t.datetime "date_debut"
     t.datetime "date_fin"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "produit_id", limit: 4
   end
+
+  add_index "locations", ["produit_id"], name: "index_locations_on_produit_id", using: :btree
 
   create_table "produits", force: :cascade do |t|
     t.string   "nom",                        limit: 255
@@ -107,4 +108,5 @@ ActiveRecord::Schema.define(version: 20160525142105) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "produits", "types"
+  add_foreign_key "locations", "produits"
 end
