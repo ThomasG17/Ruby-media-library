@@ -63,6 +63,20 @@ class ProduitsController < ApplicationController
     end
   end
 
+
+  def rent
+    respond_to do |format|
+      if @produit.rent(produit_params)
+        format.html { redirect_to thanks, notice: 'Move was successfully destroyed.' }
+        format.json { head :no_content }
+        produit.disponibilite = false;
+      else
+        format.html { render :edit }
+        format.json { render json: @produit.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_produit
@@ -71,6 +85,6 @@ class ProduitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def produit_params
-      params.require(:produit).permit(:nom, :disponibilite, :description, :image, :ean)
+      params.require(:produit).permit(:nom, :disponibilite, :description, :image, :ean, :product_image)
     end
 end
