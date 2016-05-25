@@ -1,6 +1,6 @@
 class ProduitsController < ApplicationController
   before_action :set_produit, only: [:show]
-  add_breadcrumb "Home", :root_path
+  add_breadcrumb "Accueil", :root_path
 
   # GET /produits
   # GET /produits.json

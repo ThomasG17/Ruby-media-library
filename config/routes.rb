@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :produits
   resources :locations
   resources :roles
+  resources :types do
+    get 'list_produits', on: :member
+  end
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
