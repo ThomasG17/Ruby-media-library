@@ -292,11 +292,11 @@ header .header-content .header-content-inner p {
     display: block;
     position: absolute;
     bottom: 0;
-    width: 70%;
+    width: 60%;
     margin:auto;
     height: 100%;
     text-align: center;
-    margin-left:15%;
+    margin-left:20%;
     color: #fff;
     opacity: 0;
     /*background-color: rgba(240,95,64,.9);*/
@@ -510,7 +510,7 @@ body {
 }
 
 .img-product{
-    max-width:70% !important;
+    max-width:60% !important;
     margin:auto;
     margin-bottom:15%;
 }
