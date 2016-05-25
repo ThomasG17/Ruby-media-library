@@ -61,6 +61,10 @@ ActiveRecord::Schema.define(version: 20160525075235) do
     t.string   "ean",           limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "product_image_file_name",    limit: 255
+    t.string   "product_image_content_type", limit: 255
+    t.integer  "product_image_file_size",    limit: 4
+    t.datetime "product_image_updated_at"
   end
 
   create_table "roles", force: :cascade do |t|
