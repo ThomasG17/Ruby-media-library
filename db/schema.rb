@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525075235) do
+ActiveRecord::Schema.define(version: 20160525125135) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -54,13 +54,13 @@ ActiveRecord::Schema.define(version: 20160525075235) do
   end
 
   create_table "produits", force: :cascade do |t|
-    t.string   "nom",           limit: 255
+    t.string   "nom",                        limit: 255
     t.boolean  "disponibilite"
-    t.text     "description",   limit: 65535
-    t.text     "image",         limit: 65535
-    t.string   "ean",           limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.text     "description",                limit: 65535
+    t.text     "image",                      limit: 65535
+    t.string   "ean",                        limit: 255
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "product_image_file_name",    limit: 255
     t.string   "product_image_content_type", limit: 255
     t.integer  "product_image_file_size",    limit: 4
@@ -72,6 +72,14 @@ ActiveRecord::Schema.define(version: 20160525075235) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "types", ["name"], name: "index_types_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "firstname",              limit: 255, default: "", null: false
