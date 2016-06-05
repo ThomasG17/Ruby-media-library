@@ -42,7 +42,7 @@ ActiveAdmin.register Produit do
       f.input :description
       f.input :ean
       f.input :product_image
-      f.input :type
+      f.input :type, as: :check_boxes
     end
     f.actions
   end

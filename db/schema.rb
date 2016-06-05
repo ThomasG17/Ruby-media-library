@@ -68,10 +68,7 @@ ActiveRecord::Schema.define(version: 20160525142105) do
     t.string   "product_image_content_type", limit: 255
     t.integer  "product_image_file_size",    limit: 4
     t.datetime "product_image_updated_at"
-    t.integer  "type_id",                    limit: 4
   end
-
-  add_index "produits", ["type_id"], name: "index_produits_on_type_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",       limit: 255
