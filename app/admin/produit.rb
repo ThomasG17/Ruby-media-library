@@ -36,7 +36,7 @@ ActiveAdmin.register Produit do
   filter :created_at
 
   form do |f|
-    f.inputs "Type Details" do
+    f.inputs "Produits Details" do
       f.input :nom
       f.input :disponibilite
       f.input :description
