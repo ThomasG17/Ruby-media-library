@@ -17,4 +17,5 @@ class ApplicationController < ActionController::Base
   def types
     @types = Type.all
   end
+
 end

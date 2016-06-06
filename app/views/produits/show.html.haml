@@ -4,20 +4,31 @@
   %b Nom:
   = @produit.nom
 %p
+  = image_tag @produit.product_image.url
+%p
   %b Disponibilite:
   = @produit.disponibilite
 %p
   %b Description:
   = @produit.description
 %p
-  %b Image:
-  = @produit.image
-%p
   %b Ean:
   = @produit.ean
 
-%p
-  %b Image du produit:
-  = image_tag @produit.product_image.url
 
+
+%tbody
+  - @comments.each do |comment|
+    %tr
+      %td= comment.body
+      %td= comment.user_id
+      %td= comment.produit_id
+      %td= link_to 'Show', comment
+      %td= link_to 'Edit', edit_comment_path(comment)
+      %td= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+-if(@produit.disponibilite)
+  = link_to 'Locate this product', produit_locate_path(@produit)
+-else
+  %p This product isn't available for the moment
 = link_to 'Back', produits_path

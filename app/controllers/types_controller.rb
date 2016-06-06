@@ -1,5 +1,6 @@
-class TypesController < ActionController::Base
+class TypesController < ApplicationController
   add_breadcrumb "Accueil", :root_path
+  layout "application"
 
   # GET /types
   # GET /types.json
@@ -8,7 +9,9 @@ class TypesController < ActionController::Base
   end
 
   def list_produits
-    @produits = Produit.find(params[:type])
-    add_breadcrumb :type.name
+    @type_id = params[:id]
+    @type = Type.find(@type_id)
+    @produits = @type.produits
+    add_breadcrumb @type.name
   end
 end

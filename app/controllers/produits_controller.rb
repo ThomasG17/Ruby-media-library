@@ -11,8 +11,12 @@ class ProduitsController < ApplicationController
   # GET /produits/1
   # GET /produits/1.json
   def show
-    set_produit
+    @comments = @produit.comments
     add_breadcrumb @produit.nom
+  end
+
+  def locate
+
   end
 
   def rent
@@ -36,6 +40,6 @@ class ProduitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def produit_params
-      params.require(:produit).permit(:nom, :disponibilite, :description, :image, :ean, :product_image)
+      params.require(:produit).permit(:nom, :disponibilite, :description, :image, :ean, :product_image, :type, :comments)
     end
 end
