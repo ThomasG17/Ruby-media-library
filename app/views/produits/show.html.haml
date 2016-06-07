@@ -1,20 +1,44 @@
 %p#notice= notice
 
-%p
-  %b Nom:
-  = @produit.nom
-%p
-  %b Disponibilite:
-  = @produit.disponibilite
-%p
-  %b Description:
-  = @produit.description
-%p
-  %b Image:
-  = @produit.image
-%p
-  %b Ean:
-  = @produit.ean
+.container
+  .row
+    %center
+      .h1
+        = @produit.nom
+  .row
+    .col-md-6
+      .product_image
+        %center
+          %img{:src => @produit.image}
+    .col-md-6
+      %p
+      - if @produit.disponibilite?
+        .btn.btn-success
+          = t('available')
+      - else
+        .btn.btn-danger
+          = t('notavailable')
+      %p
+        %h3 
+          = t('description')
+      %p
+        = @produit.description
+      %p
+        %b 
+          = t('ean')
+        %br
+          = @produit.ean
+
+  .row
+    .h1
+      Commentaires
+    .col-md-2
+      .avatar_comment
+        %img{:src => "http://www.telmexhub.com.mx/assets/users/pics/67583/avatar.jpg"}
+    .col-md-10
+      .texte_comment
+        %p
+          blalblablalb lbll bla bllbbblbalbalb lblba llablablbal lblba alb albalbla llb bl aalb balba.
 
 = link_to 'Edit', edit_produit_path(@produit)
 \|
