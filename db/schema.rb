@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160525142105) do
     t.text     "description",                limit: 65535
     t.text     "image",                      limit: 65535
     t.string   "ean",                        limit: 255
+    t.integer  "type_id",                    limit: 4
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.string   "product_image_file_name",    limit: 255
@@ -69,6 +70,8 @@ ActiveRecord::Schema.define(version: 20160525142105) do
     t.integer  "product_image_file_size",    limit: 4
     t.datetime "product_image_updated_at"
   end
+
+  add_index "produits", ["type_id"], name: "index_produits_on_type_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -107,5 +110,4 @@ ActiveRecord::Schema.define(version: 20160525142105) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "locations", "produits"
-  add_foreign_key "produits", "types"
 end
