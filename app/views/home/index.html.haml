@@ -1,1 +1,22 @@
-%h1 Bonjour
+
+%section.top-list
+	.container
+		.row
+			.col-lg-1
+			.col-lg-9.text-center{ :style => "font-weight: 500; font-size: 30px;" }
+				Notre bibliothèque!
+			.col-lg-8
+
+%section.no-padding
+	.container-fluid
+		.row
+			- @produits.each do |produit|
+				.col-lg-4.col-sm-6
+					%a.product-box{:href => "/produits/#{produit.id}" }
+						%img{:src => produit.image}
+						.product-box-focus
+							.product-box-focus-content
+								.project-category.text-faded
+									=image_tag "magnifier-tool.svg"
+								.project-name
+									%span= produit.nom
