@@ -4,7 +4,6 @@ class CreateProduits < ActiveRecord::Migration
       t.string :nom
       t.boolean :disponibilite
       t.text :description
-      t.text :image
       t.string :ean
       t.belongs_to :type, index: true
       t.timestamps null: false
