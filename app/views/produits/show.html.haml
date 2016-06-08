@@ -18,7 +18,7 @@
 
 
 %tbody
-  - @comments.each do |comment|
+  - @comments_users.each do |comment|
     %tr
       %td= comment.body
       %td= comment.user_id
@@ -32,3 +32,5 @@
 -else
   %p This product isn't available for the moment
 = link_to 'Back', produits_path
+
+= render partial: "comments/form"

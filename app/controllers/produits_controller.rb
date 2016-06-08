@@ -11,7 +11,8 @@ class ProduitsController < ApplicationController
   # GET /produits/1
   # GET /produits/1.json
   def show
-    @comments = @produit.comments
+    @comments_users = @produit.comments
+    @comment = Comment.new
     add_breadcrumb @produit.nom
   end
 

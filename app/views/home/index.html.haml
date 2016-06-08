@@ -1,1 +1,10 @@
-%h1 Bonjour
+- @types.each do |type|
+  - produits_random_by_type(type.id)
+  - if(!@random_ids.empty?)
+    -# Nom de la catégorie
+    = type.name
+    - @random_ids.each do |product_id|
+      -# Produit
+      - @product = Produit.find(product_id)
+      = link_to 'Show', @product
+      = link_to 'Locate', produit_locate_path(@produit)
