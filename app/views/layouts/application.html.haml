@@ -10,14 +10,14 @@
       .container-fluid
         .navbar-header
           .navbar-brand.page-scroll
-            = link_to('Accueil', root_path)
+            = link_to(t('homepage'), root_path)
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-center
             -if(!user_signed_in?)
               %li
-                = link_to('Connexion', new_user_session_url)
+                = link_to(t('connection'), new_user_session_url)
               %li
-                = link_to('Enregistrement', new_user_registration_url)
+                = link_to(t('signup'), new_user_registration_url)
             -else
               %li
                 -if(current_user)
@@ -33,7 +33,7 @@
     %header
       .header-content
         .header-content-inner
-          Home page
+          = t('homepage')
     %p.notice= notice
     %p.alert= alert
     = yield

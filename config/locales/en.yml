@@ -20,8 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  connection: "Log in"
+  signup: "signup"
   hello: "Hello world"
   available: "available"
   notavailable: "not available"
   description: "Description"
   ean: "Product ID"
+  homepage: "Homepage"

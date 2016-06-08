@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  connection: "connexion"
+  signup: "Enregistrement"
+  homepage: "Accueil"
   available: "Disponible"
   notavailable: "Indisponible"
   description: "Description"
