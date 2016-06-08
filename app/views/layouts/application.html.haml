@@ -24,9 +24,11 @@
                   = link_to('Profil', edit_user_registration_url)
               %li
                 = link_to('Sign out', destroy_user_session_url, method: :delete)
-              %li  
-                = link_to "Français", params.merge({:locale => :fr}) 
-                = link_to "English", params.merge({:locale => :en}) 
+          %ul.nav.navbar-nav.navbar-center.flagSection
+            %li  
+              = link_to image_tag("France-icon.png"), params.merge({:locale => :fr})
+            %li
+              = link_to image_tag("United-Kingdom-icon.png"), params.merge({:locale => :en}) 
 
     %header
       .header-content
