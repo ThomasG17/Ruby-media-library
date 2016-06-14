@@ -1,14 +1,14 @@
-= link_to 'Back', root_path
-
 %tbody
   - @produits.each do |produit|
+
+    -# Produit
     %tr
       %td= produit.nom
       %td= produit.disponibilite
       %td= produit.description
-      %td= produit.image
+      %td= image_tag produit.product_image
       %td= link_to 'Show', produit
       -if(produit.disponibilite)
-        %td= link_to 'Locate', produit_locate_path(produit)
+        %td= link_to 'Rent', produit_rent_path(produit)
       -else
         %p Not available

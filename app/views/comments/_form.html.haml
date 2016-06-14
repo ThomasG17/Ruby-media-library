@@ -1,10 +1,8 @@
-= simple_form_for(@comment) do |f|
+= simple_form_for [@produit, @comment] do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :body
-    = f.input :user_id
-    = f.input :produit_id
 
   .form-actions
     = f.button :submit

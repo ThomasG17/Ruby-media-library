@@ -12,9 +12,12 @@
           %ul.nav.navbar-nav.navbar-left
             %li
               = link_to('Accueil', root_path)
+            -# Afficher uniquement les catégories possédant des produits
             - @types.each do |type|
-              %li
-                = link_to type.name, list_produits_type_path(type)
+              -if (type.produits.size != 0)
+                %li
+                  = link_to type.name, list_produits_type_path(type)
+
           %ul.nav.navbar-nav.navbar-right
             -if(!user_signed_in?)
               %li

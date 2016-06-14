@@ -1,10 +1,14 @@
 - @types.each do |type|
   - produits_random_by_type(type.id)
   - if(!@random_ids.empty?)
+
     -# Nom de la catégorie
-    = type.name
+    %h1= type.name
     - @random_ids.each do |product_id|
+
       -# Produit
       - @product = Produit.find(product_id)
+      = @product.nom
+      = image_tag @product.product_image
       = link_to 'Show', @product
-      = link_to 'Locate', produit_locate_path(@produit)
+      = link_to 'Rent', produit_rent_path(@product)

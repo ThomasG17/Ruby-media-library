@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
   resources :produits do
-    get 'locate'
+    get 'rent'
+    resources :comments, :only => [:create, :edit, :destroy, :update]
   end
   resources :locations
   resources :roles
