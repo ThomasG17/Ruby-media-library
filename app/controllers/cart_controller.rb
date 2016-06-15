@@ -12,21 +12,15 @@ class CartController < ApplicationController
   end
 
   def create
-    @cart = Cart.new(current_user.id)
+    @cart = Cart.new(cart_params)
     if @cart.save
       redirect_to root_path
     end
   end
 
   def update
-    respond_to do |format|
-      if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'Role was successfully updated.' }
-        format.json { render :show, status: :ok, location: @cart }
-      else
-        format.html { render :edit }
-        format.json { render json: @cart.errors, status: :unprocessable_entity }
-      end
+    if @cart.update(cart_params)
+      redirect_to cart_path(params[:id])
     end
   end
 
@@ -38,7 +32,7 @@ private
     @cart = Cart.find(params[:id])
   end
 
-  def role_params
+  def cart_params
     params.require(:cart).permit(:user_id)
   end
 end

@@ -7,4 +7,3 @@ class CreateComment < ActiveRecord::Migration
     end
   end
 end
-p
