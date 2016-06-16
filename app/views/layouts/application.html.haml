@@ -30,6 +30,9 @@
                   = link_to('Profil', edit_user_registration_url)
               %li
                 = link_to('Sign out', destroy_user_session_url, method: :delete)
+            %li
+              = @cart.id
+              //= link_to 'Panier', user_cart_url(current_user.id, @cart.id)
     = render_breadcrumbs :separator => ' / '
     %p.notice= notice
     %p.alert= alert

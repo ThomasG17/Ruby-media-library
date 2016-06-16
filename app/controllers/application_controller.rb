@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :types
 
+  def index
+    @cart = Cart.find_by(user_id: current_user.id)
+  end
+
   protected
 
   def configure_permitted_parameters
@@ -16,12 +20,6 @@ class ApplicationController < ActionController::Base
 
   def types
     @types = Type.all
-  end
-
-  private
-
-  def after_sign_up_path_for(resource_or_scope)
-    new_cart_path
   end
 
 end
