@@ -11,10 +11,14 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if session[:cart].nil?
+    if session[:cart_id].nil?
       @cart = Cart.find_by(user_id: current_user.id)
-      session[:cart] = @cart
+      session[:cart_id] = @cart.id
     end
+    if session[:user_id].nil?
+      session[:user_id] = current_user.id
+    end
+    root_path
   end
 
   protected
