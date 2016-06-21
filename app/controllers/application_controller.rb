@@ -8,7 +8,13 @@ class ApplicationController < ActionController::Base
   before_filter :types
 
   def index
-    @cart = Cart.find_by(user_id: current_user.id)
+  end
+
+  def after_sign_in_path_for(resource)
+    if session[:cart].nil?
+      @cart = Cart.find_by(user_id: current_user.id)
+      session[:cart] = @cart
+    end
   end
 
   protected

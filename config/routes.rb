@@ -7,9 +7,7 @@ Rails.application.routes.draw do
     get 'rent'
     resources :comments, :only => [:create, :edit, :destroy, :update]
   end
-  resources :users do
-    resources :cart
-  end
+  resources :cart
   resources :locations
   resources :types do
     get 'list_produits', on: :member

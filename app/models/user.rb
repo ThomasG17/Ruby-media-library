@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: :true
 
   def set_cart
-    Cart.create(user_id: self.id)
+    @cart = Cart.create(user_id: self.id)
+    session[:cart] = @cart
   end
 end
