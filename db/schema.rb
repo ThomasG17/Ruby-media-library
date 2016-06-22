@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613175829) do
+ActiveRecord::Schema.define(version: 20160621203604) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -89,6 +89,16 @@ ActiveRecord::Schema.define(version: 20160613175829) do
 
   add_index "produits", ["type_id"], name: "index_produits_on_type_id", using: :btree
 
+  create_table "produits_carts", force: :cascade do |t|
+    t.integer  "produit_id", limit: 4
+    t.integer  "cart_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "produits_carts", ["cart_id"], name: "index_produits_carts_on_cart_id", using: :btree
+  add_index "produits_carts", ["produit_id"], name: "index_produits_carts_on_produit_id", using: :btree
+
   create_table "roles", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
@@ -127,4 +137,6 @@ ActiveRecord::Schema.define(version: 20160613175829) do
   add_foreign_key "comments", "produits"
   add_foreign_key "comments", "users"
   add_foreign_key "locations", "produits"
+  add_foreign_key "produits_carts", "carts"
+  add_foreign_key "produits_carts", "produits"
 end

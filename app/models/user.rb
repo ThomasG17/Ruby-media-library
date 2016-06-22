@@ -13,6 +13,5 @@ class User < ActiveRecord::Base
 
   def set_cart
     @cart = Cart.create(user_id: self.id)
-    session[:cart] = @cart
   end
 end
