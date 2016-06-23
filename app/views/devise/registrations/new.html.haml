@@ -3,16 +3,14 @@
 	= f.error_notification
 	.form-group.row
 		.col-sm-10
-			= f.input :firstname, required: true, autofocus: true
+			= f.input :firstname, required: true, autofocus: true, id: "test"
 	.form-group.row
 		.col-sm-10
 		= f.input :lastname, required: true
 	.form-group.row
 		.col-sm-10
 			= f.input :email, required: true
-    .form-group.row
-		.col-sm-10
-			= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+    
 	.form-group.row
 		.col-sm-10
 			= f.input :password_confirmation, required: true
