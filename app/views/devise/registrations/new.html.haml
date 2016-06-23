@@ -3,17 +3,17 @@
 	= f.error_notification
 	.form-group.row
 		.col-sm-10
-			= f.input :firstname, required: true, autofocus: true
+			= f.input :firstname, required: true, autofocus: true, placeholder: "firstname", class:"form-control"
 	.form-group.row
 		.col-sm-10
-			= f.input :lastname, required: true
+			= f.input :lastname, required: true, placeholder: "LastName", class:"form-control"
 	.form-group.row
 		.col-sm-10
-			= f.input :email, required: true
+			= f.input :email, required: true, placeholder: "Email", class:"form-control"
     
 	.form-group.row
 		.col-sm-10
-			= f.input :password_confirmation, required: true
+			= f.input :password_confirmation, required: true, placeholder: "Password confirmation", class:"form-control"
 	.form-actions
 		= f.button :submit, "Sign up"
 = render "devise/shared/links"
