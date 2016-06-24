@@ -1,9 +1,25 @@
 %h2 Log in
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :email, required: false, autofocus: true
-    = f.input :password, required: false
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, "Log in"
+	.row{ :style => "margin-bottom:5%;" }
+	.form-group.row
+		.col-sm-1
+		.col-sm-10
+			= f.input :email, required: false, autofocus: true
+		.col-sm-1
+	.form-group.row
+		.col-sm-1
+		.col-sm-10
+			= f.input :password, required: false
+		.col-sm-1
+	.form-group.row
+		.col-sm-1
+		.col-sm-10
+			= f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+		.col-sm-1
+	.form-actions.row
+		.col-sm-1
+		.col-sm-10
+			= f.button :submit, "Log in", class: "center-block"
+		.col-sm-1
+	.row{ :style => "margin-top:5%;" }
 = render "devise/shared/links"
