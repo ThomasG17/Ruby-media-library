@@ -1,6 +1,32 @@
-.test{
-	width:100px;
-	height:100px;
-	background:red;
-	position:absolute;
+.content:before{
+	left: 0;
+	right: 0;
+	z-index: -1;
+	content: "";
+	height: 100%;
+	position: fixed;
+	background-size:cover;
+	background-image: url('https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-289833.jpg');
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+}
+
+.content{
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 0;
+	/*margin-left: 20px;*/
+	/*margin-right: 20px;*/
+}
+
+form{
+	width:30%; 
+	margin:auto; 
+	margin-top: 20%; 
+	background-color:#ece9e9; 
+	border-radius:20px;
 }
