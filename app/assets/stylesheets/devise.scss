@@ -29,3 +29,13 @@ form{
 	background-color:rgba(236,233,233, 0.8); 
 	border-radius:20px;
 }
+
+
+form input[type=submit]{
+	display: block;
+	margin: auto;
+	background-color: #38678D !important;
+	background-image: none;
+	border: 0;
+	border-radius: 7px;
+}
