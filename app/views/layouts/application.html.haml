@@ -9,7 +9,10 @@
     .navbar.navbar-default
       .container-fluid
         .navbar-header
-          %ul.nav.navbar-nav.navbar-left
+          .navbar-brand.page-scroll
+            = link_to('Accueil', root_path)
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-center
             %li
               = link_to('Accueil', root_path)
             -# Afficher uniquement les catégories possédant des produits

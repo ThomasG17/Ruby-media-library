@@ -121,6 +121,8 @@ ActiveRecord::Schema.define(version: 20160613175829) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["firstname"], name: "index_users_on_firstname", unique: true, using: :btree
+  add_index "users", ["lastname"], name: "index_users_on_lastname", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "carts", "users"

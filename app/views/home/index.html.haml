@@ -1,14 +1,29 @@
-- @types.each do |type|
-  - produits_random_by_type(type.id)
-  - if(!@random_ids.empty?)
+%header
+  .header-content
+    .header-content-inner
+      Home page
 
-    -# Nom de la catégorie
-    %h1= type.name
-    - @random_ids.each do |product_id|
+%section.top-list
+  .container
+    .row
+      .col-lg-1
+      .col-lg-3.text-center{ :style => "font-weight: 500; font-size: 30px;" }
+        Notre Bibilothèque
+      .col-lg-7
 
-      -# Produit
-      - @product = Produit.find(product_id)
-      = @product.nom
-      = image_tag @product.product_image
-      = link_to 'Show', @product
-      = link_to 'Rent', produit_rent_path(@product)
+%section.no-padding
+  .container-fluid
+    .row
+      - @types.each do |type|
+        - produits_random_by_type(type.id)
+        - if(!@random_ids.empty?)
+          -# Nom de la catégorie
+          .col-lg-4.col-sm-6
+            %h1= type.name
+            - @random_ids.each do |product_id|
+              -# Produit
+              - @product = Produit.find(product_id)
+              = @product.nom
+              = image_tag @product.product_image
+              = link_to 'Show', @product
+              = link_to 'Rent', produit_rent_path(@product)
