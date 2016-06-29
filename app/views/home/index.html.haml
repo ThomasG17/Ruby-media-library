@@ -14,7 +14,7 @@
 %section.no-padding
   .container-fluid
     .row
-        - @types.each do |type|
+      - @types.each do |type|
         - produits_random_by_type(type.id)
         - if(!@random_ids.empty?)
           -# Nom de la catégorie
