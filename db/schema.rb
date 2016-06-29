@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525142105) do
+ActiveRecord::Schema.define(version: 20160613175829) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -46,6 +46,23 @@ ActiveRecord::Schema.define(version: 20160525142105) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "carts", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text    "body",       limit: 65535
+    t.integer "user_id",    limit: 4
+    t.integer "produit_id", limit: 4
+  end
+
+  add_index "comments", ["produit_id"], name: "index_comments_on_produit_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
   create_table "locations", force: :cascade do |t|
     t.datetime "date_debut"
     t.datetime "date_fin"
@@ -60,7 +77,6 @@ ActiveRecord::Schema.define(version: 20160525142105) do
     t.string   "nom",                        limit: 255
     t.boolean  "disponibilite"
     t.text     "description",                limit: 65535
-    t.text     "image",                      limit: 65535
     t.string   "ean",                        limit: 255
     t.integer  "type_id",                    limit: 4
     t.datetime "created_at",                               null: false
@@ -105,9 +121,10 @@ ActiveRecord::Schema.define(version: 20160525142105) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["firstname"], name: "index_users_on_firstname", unique: true, using: :btree
-  add_index "users", ["lastname"], name: "index_users_on_lastname", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "carts", "users"
+  add_foreign_key "comments", "produits"
+  add_foreign_key "comments", "users"
   add_foreign_key "locations", "produits"
 end

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
-  resources :produits
+  resources :produits do
+    get 'rent'
+    resources :comments, :only => [:create, :edit, :destroy, :update]
+  end
+  resources :cart
   resources :locations
   resources :roles
   resources :types do

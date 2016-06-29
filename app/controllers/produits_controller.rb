@@ -11,25 +11,18 @@ class ProduitsController < ApplicationController
   # GET /produits/1
   # GET /produits/1.json
   def show
-    @comments = @produit.comments
+    @comments_users = @produit.comments
+    @comment = Comment.new( :produit => @produit )
     add_breadcrumb @produit.nom
   end
 
-  def locate
-
-  end
-
   def rent
-    respond_to do |format|
-      if @produit.rent(produit_params)
-        format.html { redirect_to thanks, notice: 'Move was successfully destroyed.' }
-        format.json { head :no_content }
-        produit.disponibilite = false;
-      else
-        format.html { render :edit }
-        format.json { render json: @produit.errors, status: :unprocessable_entity }
-      end
-    end
+    "{if @produit.rent(produit_params)
+      redirect_to thanks, notice: 'Move was successfully destroyed.'
+      produit.disponibilite = false;
+    else
+      render :edit
+    end}"
   end
 
   private

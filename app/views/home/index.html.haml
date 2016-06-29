@@ -1,217 +1,27 @@
 %header
-	.header-content
-		.header-content-inner
-			Home page
-%section.top-list
-	.container
-		.row
-			.col-lg-1
-			.col-lg-2.text-center{ :style => "font-weight: 500; font-size: 30px;" }
-				Top Livres
-			.col-lg-8
-
-%section.no-padding
-	.container-fluid
-		.row
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "comics/1.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "comics/2.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "comics/3.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "comics/4.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "comics/5.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "comics/6.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
+  .header-content
+    .header-content-inner
+      Home page
 
 %section.top-list
-	.container
-		.row
-			.col-lg-1
-			.col-lg-2.text-center{ :style => "font-weight: 500; font-size: 30px;" }
-				Top Films
-			.col-lg-8
+  .container
+    .row
+      .col-lg-1
+      .col-lg-2.text-center{ :style => "font-weight: 500; font-size: 30px;" }
+        Top Livres
+      .col-lg-8
 
-%section.no-padding
-	.container-fluid
-		.row
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "movies/1.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
+- @types.each do |type|
+  - produits_random_by_type(type.id)
+  - if(!@random_ids.empty?)
 
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "movies/2.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
+    -# Nom de la catégorie
+    %h1= type.name
+    - @random_ids.each do |product_id|
 
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "movies/3.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "movies/4.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "movies/5.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "movies/6.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-
-%section.top-list
-	.container
-		.row
-			.col-lg-1
-			.col-lg-2.text-center{ :style => "font-weight: 500; font-size: 30px;" }
-				Top Musiques
-			.col-lg-8
-
-%section.no-padding
-	.container-fluid
-		.row
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "musics/1.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "musics/2.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "musics/3.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "musics/4.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "musics/5.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
-
-			.col-lg-4.col-sm-6
-				%a.product-box
-					=image_tag "musics/6.jpg", class:"img-responsive img-product"
-					.product-box-focus
-						.product-box-focus-content
-							.project-category.text-faded
-								Ajouter
-							.project-name
-								Name
+      -# Produit
+      - @product = Produit.find(product_id)
+      = @product.nom
+      = image_tag @product.product_image
+      = link_to 'Show', @product
+      = link_to 'Rent', produit_rent_path(@product)
