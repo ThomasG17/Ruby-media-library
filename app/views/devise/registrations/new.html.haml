@@ -21,6 +21,11 @@
 		.form-group.row
 			.col-sm-1
 			.col-sm-10
+				= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+			.col-sm-1
+		.form-group.row
+			.col-sm-1
+			.col-sm-10
 				= f.input :password_confirmation, required: true, placeholder: "Password confirmation", class:"form-control"
 			.col-sm-1
 		.form-actions.row
