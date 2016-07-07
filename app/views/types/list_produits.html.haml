@@ -9,6 +9,6 @@
       %td= image_tag produit.product_image
       %td= link_to 'Show', produit
       -if(produit.disponibilite)
-        %td= link_to 'Rent', produit_rent_path(produit)
+        %td= render 'locations/form', produit: produit
       -else
         %p Not available

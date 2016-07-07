@@ -1,10 +1,6 @@
 = simple_form_for(@location) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :date_debut
-    = f.input :date_fin
-    = f.association :produit, label_method: :nom
-
-  .form-actions
+    = f.hidden_field(:date_debut, as: :string, value: Date.today)
+    = f.hidden_field(:date_fin, as: :string, value: Date.today + 15 )
+    = f.input :produit_id, input_html: { value: produit.id }
+    = f.input :user_id , input_html: { value: current_user.id }
     = f.button :submit

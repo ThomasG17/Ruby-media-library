@@ -12,6 +12,7 @@ class TypesController < ApplicationController
     @type_id = params[:id]
     @type = Type.find(@type_id)
     @produits = @type.produits
+    @location = Location.new
     add_breadcrumb @type.name
   end
 end
