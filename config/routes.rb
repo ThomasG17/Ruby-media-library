@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
+  resources :users do
+    get 'list_locations', on: :member
+  end
+  resources :locations
   resources :produits do
     get 'rent'
     resources :comments, :only => [:create, :edit, :destroy, :update]
   end
-  resources :locations
-  resources :roles
   resources :types do
     get 'list_produits', on: :member
   end

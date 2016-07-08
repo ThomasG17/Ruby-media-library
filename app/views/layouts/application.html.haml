@@ -8,18 +8,16 @@
   %body
     .navbar.navbar-default
       .container-fluid
-        .navbar-header
-          .navbar-brand.page-scroll
-            = link_to('Accueil', root_path)
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-center
             %li
               = link_to('Accueil', root_path)
             -# Afficher uniquement les catégories possédant des produits
-            - @types.each do |type|
-              -if (type.produits.size != 0)
-                %li
-                  = link_to type.name, list_produits_type_path(type)
+            - unless(@types.nil?)
+              - @types.each do |type|
+                -if (type.produits.size != 0)
+                  %li
+                    = link_to type.name, list_produits_type_path(type)
 
           %ul.nav.navbar-nav.navbar-right
             -if(!user_signed_in?)
@@ -28,9 +26,11 @@
               %li
                 = link_to('Enregistrement', new_user_registration_url)
             -else
-              %li
-                -if(current_user)
+              -if(current_user)
+                %li
                   = link_to('Profil', edit_user_registration_url)
+                %li
+                  = link_to('Locations', list_locations_user_url(current_user))
               %li
                 = link_to('Sign out', destroy_user_session_url, method: :delete)
     = render_breadcrumbs :separator => ' / '

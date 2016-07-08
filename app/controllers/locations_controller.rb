@@ -1,20 +1,13 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
-  # GET /locations
-  # GET /locations.json
-  def index
-    @locations = Location.all
-  end
-
-  # GET /locations/1
-  # GET /locations/1.json
-  def show
-  end
-
   # GET /locations/new
   def new
     @location = Location.new
+  end
+
+  def show
+
   end
 
   # GET /locations/1/edit
@@ -26,7 +19,7 @@ class LocationsController < ApplicationController
   def create
      @location = Location.new(location_params)
      if @location.save
-        redirect_to @location, notice: 'Location was successfully created.'
+        redirect_to user_location_location, notice: 'Location was successfully created.'
      else
         render :new
      end
