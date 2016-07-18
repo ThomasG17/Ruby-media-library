@@ -33,7 +33,6 @@
                   = link_to('Locations', list_locations_user_url(current_user))
               %li
                 = link_to('Sign out', destroy_user_session_url, method: :delete)
-    = render_breadcrumbs :separator => ' / '
     %p.notice= notice
     %p.alert= alert
     = yield

@@ -1,0 +1,63 @@
+/*.content-rent{
+	position: fixed;
+	left:0;
+	right:0;
+	height: 100%;
+}*/
+
+.content-rent:before{
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	background-image: url('https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-405809.jpg');
+	background-size:cover;
+	height: 100%;
+	-webkit-filter: invert(25%);
+	-moz-filter: invert(25%);
+	-o-filter: invert(25%);
+	-ms-filter: invert(25%);
+	filter: invert(25%);
+}
+
+.content-rent{
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 0;
+	top:9%;
+}
+
+.product-rent{
+	margin-top:20%;
+	margin:auto;
+}
+
+.content-group{
+	width: 60%;
+    margin: auto;
+    margin-top: 10%;
+    background-color:rgba(236, 233, 233, 0.8);
+    border-radius:20px;
+}
+
+.product-image{
+	width:80%;
+}
+
+.product-title{
+	font-size: 25px;
+}
+
+.product-line{
+	width:100%;
+	height:1px;
+	background-color:#a29494;
+	margin-bottom:4%;
+}
+
+.product-resume{
+	font-size:18px;
+	font-weight: bold;
+}
