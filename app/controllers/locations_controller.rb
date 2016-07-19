@@ -3,7 +3,13 @@ class LocationsController < ApplicationController
 
   # GET /locations/new
   def new
-    @location = Location.new
+    @location = Location.new(produit_id: params[:produit_id], user_id: params[:user_id], date_debut: Date.today, date_fin: Date.today + 15)
+    @location.save
+    if @location.save
+       redirect_to list_locations_user_url(params[:user_id]), notice: 'Location was successfully created.'
+    else
+       render :new
+    end
   end
 
   def show
@@ -19,7 +25,7 @@ class LocationsController < ApplicationController
   def create
      @location = Location.new(location_params)
      if @location.save
-        redirect_to user_location_location, notice: 'Location was successfully created.'
+        redirect_to root_path, notice: 'Location was successfully created.'
      else
         render :new
      end

@@ -11,7 +11,10 @@
         %td= image_tag produit.product_image
         %td= link_to 'Show', produit
         -if(produit.disponibilite > 0)
-          %td= render 'locations/form', produit: produit
+          -if (current_user)
+            %td= link_to 'Louer', new_user_produit_location_url(user_id: current_user, produit_id: produit.id)
+          -else
+            %td= link_to 'Louer', new_user_session_url
         -else
           %td
             %p Not available
