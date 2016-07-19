@@ -33,21 +33,26 @@
     .h1
       Commentaires
     - @comments_users.each do |comment|
-      .col-md-2
-        .avatar_comment
+      .the_comment
+        .col-md-3
           - @user = User.find(comment.user_id)
           = @user.firstname
           = @user.lastname
-      .col-md-10
-        .texte_comment
+          %br
+          Posté le
+          -#= @comments.created_at
+          %br
+          -# Si l'utilisateur connecté est celui qui à écrit le commentaire
+          -if(current_user && comment.user_id == current_user.id || current_user && current_user == admin_user)
+            %br
+            %td= link_to 'Edit', edit_produit_comment_path(comment.produit, comment), class: " btn btn-warning"
+            %td= link_to 'Destroy', [comment.produit, comment], method: :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"
+        .col-md-9
           %p
             = comment.body
-
-      -# Si l'utilisateur connecté est celui qui à écrit le commentaire
-      -if(current_user && comment.user_id == current_user.id || current_user && current_user == admin_user)
-        %td= link_to 'Edit', edit_produit_comment_path(comment.produit, comment)
-        %td= link_to 'Destroy', [comment.produit, comment], method: :delete, :data => { :confirm => 'Are you sure?' }
+      .clear
 
 -# Si l'utilisateur est connecté, on affiche le formulaire
--if(user_signed_in?)
-  = render partial: "comments/form"
+.new_comment
+  -if(user_signed_in?)
+    = render partial: "comments/form"

@@ -91,3 +91,43 @@
 .product_image img{
 	height: 300px;
 }
+
+.comment_settings{
+	float: right;
+    background-color: #d3d3d3;
+    padding: 8px;
+    margin-bottom: 5px;
+    margin-top: -11px;
+    border-radius: 0 0 5px 5px;
+}
+.the_comment{
+	border-top: 1px solid #d8d8d8;
+	padding: 10px 0px 10px 0px;
+	min-height: 100px;
+	margin-top: 20px;
+}
+.col-md-3{
+	font-weight: bold;
+	padding: 0 0 0 0 !important;
+}
+
+.clear{
+	clear:both;
+}
+
+a{
+	font-weight: bold;
+	color:#FFF !important;
+	text-decoration:none !important;
+}
+
+.new_comment{
+	width: 60%;
+    margin: auto;
+    background: rgba(236, 233, 233, 0.8);
+    border-radius: 10px;
+    padding: 5px;
+}
+.new_comment form{
+	width: 100%;
+}
