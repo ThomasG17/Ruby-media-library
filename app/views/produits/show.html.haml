@@ -1,32 +1,47 @@
-%p
-  %b Nom:
-  = @produit.nom
-%p
-  = image_tag @produit.product_image.url
-%p
-  %b Disponibilite:
-  = @produit.disponibilite
-%p
-  %b Description:
-  = @produit.description
-%p
-  %b Ean:
-  = @produit.ean
+%p#notice= notice
 
--if(@produit.disponibilite)
-  = link_to 'Rent this product', produit_rent_path(@produit)
--else
-  %p This product isn't available for the moment
+.container
+  .row
+    %center
+      .h1
+        = @produit.nom
+  .row
+    .col-md-6
+      .product_image
+        %center
+          %img{:src => @produit.product_image.url}
+    .col-md-6
+      %p
+      - if @produit.disponibilite?
+        .btn.btn-success
+          = t('available')
+      - else
+        .btn.btn-danger
+          = t('notavailable')
+      %p
+        %h3 
+          = t('description')
+      %p
+        = @produit.description
+      %p
+        %b 
+          = t('ean')
+        %br
+          = @produit.ean
 
-%tbody
-  - @comments_users.each do |comment|
-    %tr
-
-      -# Commentaire
-      - @user = User.find(comment.user_id)
-      = @user.firstname
-      = @user.lastname
-      %td= comment.body
+  .row
+    .h1
+      Commentaires
+    - @comments_users.each do |comment|
+      .col-md-2
+        .avatar_comment
+          - @user = User.find(comment.user_id)
+          = @user.firstname
+          = @user.lastname
+      .col-md-10
+        .texte_comment
+          %p
+            = comment.body
 
       -# Si l'utilisateur connecté est celui qui à écrit le commentaire
       -if(current_user && comment.user_id == current_user.id || current_user && current_user == admin_user)

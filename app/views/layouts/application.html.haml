@@ -18,6 +18,12 @@
                 -if (type.produits.size != 0)
                   %li
                     = link_to type.name, list_produits_type_path(type)
+          
+          %ul.nav.navbar-nav.navbar-center.flagSection
+            %li  
+              = link_to image_tag("France-icon.png"), params.merge({:locale => :fr})
+            %li
+              = link_to image_tag("United-Kingdom-icon.png"), params.merge({:locale => :en})
 
           %ul.nav.navbar-nav.navbar-right
             -if(!user_signed_in?)
