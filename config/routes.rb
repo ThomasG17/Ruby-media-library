@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     get 'list_locations', on: :member
+    resources :produits do
+      resources :locations, only: [:index, :new, :create]
+    end
   end
-  resources :locations
+  resources :locations, only: [:show, :edit, :update, :destroy]
   resources :produits do
     get 'rent'
     resources :comments, :only => [:create, :edit, :destroy, :update]

@@ -17,12 +17,7 @@ class ProduitsController < ApplicationController
   end
 
   def rent
-    "{if @produit.rent(produit_params)
-      redirect_to thanks, notice: 'Move was successfully destroyed.'
-      produit.disponibilite = false;
-    else
-      render :edit
-    end}"
+    @location = Location.new(user_id: params[:user_id], produit_id: params[:produit_id], date_debut: Date.today, date_fin: Date.today + 15)
   end
 
   private

@@ -13,7 +13,10 @@
       = link_to 'Show', produit, class:"btn btn-info list-group-a"
     -if(produit.disponibilite > 0)
       .col-sm-2.list-rent
-        = render 'locations/form', produit: produit
+        -if (current_user)
+          = link_to 'Louer', new_user_produit_location_url(user_id: current_user, produit_id: produit.id)
+        -else
+          = link_to 'Louer', new_user_session_url
     -else
       .col-sm-2.list-text-group
         %p Not available
