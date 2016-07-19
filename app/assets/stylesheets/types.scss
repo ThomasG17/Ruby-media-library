@@ -1,0 +1,32 @@
+.list-group-item{
+    padding: 4% 10%;
+    height: 25%;
+}
+
+.list-group-item:hover{
+    background-color:#eceeef;   
+}
+
+.list-text-group{
+    text-align: center;
+    font-size: 30px;
+    padding-top: 3%;
+}
+
+.list-group-a{
+    color:#eceeef !important;
+    text-decoration:none !important;
+    background-color:#0D446B !important;
+    border:0 !important;
+    border-color: none !important;
+}
+
+.list-group-a:hover{
+    color:#000000 !important;
+    background-color:#ffffff !important;
+}
+
+.list-rent{
+    margin-left: -6%;
+    margin-top: 3%;
+}

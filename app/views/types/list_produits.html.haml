@@ -1,17 +1,19 @@
-%table
-  %tbody
-    - @produits.each do |produit|
-
-      -# Produit
-      %tr
-        %td.name
-          = produit.nom
-        %td= produit.disponibilite
-        %td= produit.description
-        %td= image_tag produit.product_image
-        %td= link_to 'Show', produit
-        -if(produit.disponibilite > 0)
-          %td= render 'locations/form', produit: produit
-        -else
-          %td
-            %p Not available
+- @produits.each do |produit|
+  -# Produit
+  .list-group-item
+    .col-sm-2.list-text-group
+      = produit.nom
+    .col-sm-1.list-text-group
+      = produit.disponibilite
+    .col-sm-3{ :style => "padding-top:3%;" }
+      = produit.description
+    .col-sm-2
+      = image_tag produit.product_image
+    .col-sm-2{ :style => "padding-top:3%;" }
+      = link_to 'Show', produit, class:"btn btn-info list-group-a"
+    -if(produit.disponibilite > 0)
+      .col-sm-2.list-rent
+        = render 'locations/form', produit: produit
+    -else
+      .col-sm-2.list-text-group
+        %p Not available
