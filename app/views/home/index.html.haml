@@ -18,12 +18,23 @@
         - produits_random_by_type(type.id)
         - if(!@random_ids.empty?)
           -# Nom de la catégorie
-          .col-lg-4.col-sm-6
-            %h1= type.name
+          .row{ :style => "width: 90%; margin-left:0px; margin-right:0px;" }
+            .col-lg-1
+            .col-lg-2.text-center{ :style => "font-weight: 500; font-size: 30px;" }
+              = type.name
+            .col-lg-8
+              .line-no-css{ :style => "height:2px; width:100%; background-color:grey; margin-top:20px;" }
+          
+          .row{ :style => "width: 70%; margin: auto;" }
             - @random_ids.each do |product_id|
               -# Produit
-              - @product = Produit.find(product_id)
-              = @product.nom
-              = image_tag @product.product_image
-              = link_to 'Show', @product
-              = link_to 'Rent', produit_rent_path(@product)
+              .col-lg-4.col-sm-6
+                - @product = Produit.find(product_id)
+                = image_tag @product.product_image
+                .product-box-focus
+                  .product-box-focus-content
+                    .project-category.text-faded
+                      = link_to 'Show', @product
+                      = link_to 'Rent', produit_rent_path(@product)
+                    .project-name
+                      = @product.nom
