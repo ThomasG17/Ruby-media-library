@@ -1,21 +1,52 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :firstname, required: true, autofocus: true, value: current_user.firstname
-    = f.input :lastname, required: true, value: current_user.lastname
-    = f.input :email, required: true, value: current_user.email
-
+.content
+  %h2 Edit #{resource_name.to_s.humanize}
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = f.error_notification
+    .row{ :style => "margin-bottom:5%;" }
+    .form-group.row
+      .col-sm-1
+      .col-sm-10
+        = f.input :firstname, required: true, autofocus: true, value: current_user.firstname
+      .col-sm-1
+    .form-group.row
+      .col-sm-1
+      .col-sm-10
+        = f.input :lastname, required: true, value: current_user.lastname
+      .col-sm-1
+    .form-group.row
+      .col-sm-1
+      .col-sm-10
+        = f.input :email, required: true, value: current_user.email
+      .col-sm-1
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       %p
         Currently waiting confirmation for: #{resource.unconfirmed_email}
-    = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
-    = f.input :password_confirmation, required: false
-    = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
-  .form-actions
-    = f.button :submit, "Modifier le profil"
-%h3 Cancel my account
-%p
-  Unhappy? #{link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+    .form-group.row
+      .col-sm-1
+      .col-sm-10
+        = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
+      .col-sm-1
+    .form-group.row
+      .col-sm-1
+      .col-sm-10
+        = f.input :password_confirmation, required: false
+      .col-sm-1
+    .form-group.row
+      .col-sm-1
+      .col-sm-10
+        = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
+      .col-sm-1
+    .form-actions.row
+      .col-sm-1
+      .col-sm-10
+        = f.button :submit, "Modifier le profil", class: "btn btn-primary center-block"
+      .col-sm-1
+    .form-group.row.link-form
+      .col-sm-3
+      .col-sm-6
+        %h3 Cancel my account
+        %p
+          Unhappy? #{link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+          = link_to "Back", :back
+      .col-sm-3
+    .row{ :style => "margin-top:5%;" }
