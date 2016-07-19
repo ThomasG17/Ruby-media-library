@@ -115,13 +115,14 @@
 	clear:both;
 }
 
-a{
+.the_comment a{
 	font-weight: bold;
 	color:#FFF !important;
 	text-decoration:none !important;
 }
 
 .new_comment{
+	margin-top: 20px;
 	width: 60%;
     margin: auto;
     background: rgba(236, 233, 233, 0.8);
