@@ -538,3 +538,18 @@ body {
 .flagSection img{
     height: 20px;
 }
+
+.link-home a{
+   background-color: #1C468D;
+   border-radius: 8px !important;
+   font-size: 25px !important;
+   margin-left: 11% !important;
+   color: #F3F3F5 !important;
+   text-decoration: none !important;
+}
+
+.link-home a:hover{
+   background-color: #20224E;
+   color: #FFFFFF !important;
+   text-decoration: none !important;
+}
