@@ -28,13 +28,12 @@
           .row{ :style => "width: 70%; margin: auto;" }
             - @random_ids.each do |product_id|
               -# Produit
-              .col-lg-4.col-sm-6
+              .col-lg-4.col-sm-6{ :style => "margin-bottom:2%;" }
                 - @product = Produit.find(product_id)
-                = image_tag @product.product_image
-                .product-box-focus
-                  .product-box-focus-content
-                    .project-category.text-faded
-                      = link_to 'Show', @product
-                      = link_to 'Rent', produit_rent_path(@product)
-                    .project-name
-                      = @product.nom
+                .row{ :style => "text-align:center; font-size:25px;" }
+                  = @product.nom
+                .row{ :style => "text-align:center;" }
+                  = image_tag @product.product_image
+                .row{ :style => "text-align:center;" }
+                  = link_to 'Rent', produit_rent_path(@product)
+                  = link_to 'Show', @product
