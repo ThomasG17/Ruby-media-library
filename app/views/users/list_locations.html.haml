@@ -10,14 +10,8 @@
 - @locations.each do |location|
   .list-group-item
     .col-sm-2.list-text-location
-      = location.date_debut
+      = location.date_debut.strftime("%d/%m/%Y")
     .col-sm-2.list-text-location
-      = location.date_fin
+      = location.date_fin.strftime("%d/%m/%Y")
     .col-sm-2.list-text-location
       = location.produit.nil? ? "Vide" : location.produit.nom
-    .col-sm-1
-    .col-sm-1{ :style => "padding-top:3%;" }
-      = link_to 'Show', location, class:"btn btn-info location-show"
-    .col-sm-1
-    .col-sm-1{ :style => "padding-top:3%;" }
-      = link_to 'Destroy', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, class:"btn btn-info location-destroy"
