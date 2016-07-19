@@ -1,28 +1,16 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Explication rapide du projet:
 
-Things you may want to cover:
+l'application est destinée aux médiathèques pour pouvoir gérer en ligne leur stock
+et voir rapidement où en sont les locations des différents produits de leur méthiatèque,
+tout ça pour les différents utilisateurs souhaitant louer des produits.
 
-* Ruby version
+Un utilisateur peut louer un produit pour quinze jours, il peut à tout moment
+les produit qu'il a loué à la médiathèque.
 
-* System dependencies
+Chaque utilisateur peut commenter un produit pour donner son avis, ce commentaire
+est visible de tous les autres utilisateurs.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Une partie administratrice est disponible, cette section d'administration permet
+la création rapide et facile d'un produit et est types, ainsi que la gestion des locations.
