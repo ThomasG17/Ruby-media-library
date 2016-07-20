@@ -8,6 +8,7 @@
 .list-group-item{
     padding: 4% 10%;
     height: 25%;
+    overflow:hidden;
 }
 
 .list-group-item:hover{
@@ -43,4 +44,9 @@
 
 .location-destroy:hover{
     background-color:#252121 !important;
+}
+
+.list-product-img{
+    width:65%;
+    position:absolute;
 }

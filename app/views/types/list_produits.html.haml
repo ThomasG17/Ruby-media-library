@@ -8,7 +8,7 @@
     .col-sm-3{ :style => "padding-top:3%;" }
       = produit.description
     .col-sm-2
-      = image_tag produit.product_image, :class =>'product_img'
+      = image_tag produit.product_image, :class =>'list-product-img'
     .col-sm-2{ :style => "padding-top:3%;" }
       = link_to 'Show', produit, class:"btn btn-info list-group-a"
     -if(produit.disponibilite > 0)
