@@ -16,9 +16,6 @@ class ProduitsController < ApplicationController
     add_breadcrumb @produit.nom
   end
 
-  def rent
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_produit

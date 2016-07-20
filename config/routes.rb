@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   end
   resources :locations, only: [:show, :edit, :update, :destroy]
   resources :produits do
-    get 'rent'
     resources :comments, :only => [:create, :edit, :destroy, :update]
   end
   resources :types do

@@ -12,22 +12,27 @@
           %img{:src => @produit.product_image.url}
     .col-md-6
       %p
-      - if @produit.disponibilite?
+      - if @produit.disponibilite > 0
         .btn.btn-success
           = t('available')
       - else
         .btn.btn-danger
           = t('notavailable')
       %p
-        %h3 
+        %h3
           = t('description')
       %p
         = @produit.description
       %p
-        %b 
+        %b
           = t('ean')
         %br
           = @produit.ean
+      %p
+        -if (current_user)
+          = link_to 'Louer', new_user_produit_location_url(user_id: current_user, produit_id: @produit.id)
+        -else
+          = link_to 'Louer', new_user_session_url
 
   .row
     .h1

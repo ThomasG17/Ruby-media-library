@@ -24,7 +24,7 @@
               = type.name
             .col-lg-8
               .line-no-css{ :style => "height:2px; width:100%; background-color:grey; margin-top:20px;" }
-          
+
           .row{ :style => "width: 70%; margin: auto;" }
             - @random_ids.each do |product_id|
               -# Produit
@@ -35,5 +35,8 @@
                 .row{ :style => "text-align:center;" }
                   = image_tag @product.product_image, :class =>'product_img'
                 .row.link-home{ :style => "text-align:center;" }
-                  = link_to 'Rent', produit_rent_path(@product)
+                  -if (current_user)
+                    = link_to 'Louer', new_user_produit_location_url(user_id: current_user, produit_id: @product.id)
+                  -else
+                    = link_to 'Louer', new_user_session_url
                   = link_to 'Show', @product
