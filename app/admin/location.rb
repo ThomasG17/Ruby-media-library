@@ -21,6 +21,7 @@ ActiveAdmin.register Location do
     column :produit
     column :date_debut
     column :date_fin
+    column :back
     actions
   end
 
@@ -29,6 +30,7 @@ ActiveAdmin.register Location do
   filter :description
   filter :date_debut
   filter :date_fin
+  filter :back
 
   form do |f|
     f.inputs "Produits Details" do
@@ -36,6 +38,7 @@ ActiveAdmin.register Location do
       f.input :produit
       f.input :date_debut
       f.input :date_fin
+      f.input :back
     end
     f.actions
   end

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
       resources :locations, only: [:index, :new, :create]
     end
   end
-  resources :locations, only: [:show, :edit, :update, :destroy]
+  resources :locations, only: [:show, :edit, :update, :destroy] do
+    get 'back', on: :member
+  end
   resources :produits do
     resources :comments, :only => [:create, :edit, :destroy, :update]
   end
