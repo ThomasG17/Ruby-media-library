@@ -3,7 +3,7 @@
   .list-group-item
     .col-sm-2.list-text-group
       = produit.nom
-    .col-sm-1.list-text-group
+    .col-sm-1.list-text-dispo
       = produit.disponibilite
     .col-sm-3{ :style => "padding-top:3%;" }
       = produit.description
@@ -12,11 +12,11 @@
     .col-sm-2{ :style => "padding-top:3%;" }
       = link_to 'Show', produit, class:"btn btn-info list-group-a"
     -if(produit.disponibilite > 0)
-      .col-sm-2.list-rent
+      .col-sm-2.list-product-rent{ :style => "padding-top:3%;" }
         -if (current_user)
-          = link_to 'Louer', new_user_produit_location_url(user_id: current_user, produit_id: produit.id)
+          = link_to 'Louer', new_user_produit_location_url(user_id: current_user, produit_id: produit.id), class:"btn btn-info list-group-a"
         -else
-          = link_to 'Louer', new_user_session_url
+          = link_to 'Louer', new_user_session_url, class:"btn btn-info list-group-a"
     -else
       .col-sm-2.list-text-group
-        %p Not available
+        .list-not-available Not available
