@@ -8,7 +8,7 @@
     .row
       .col-lg-1
       .col-lg-3.text-center{ :style => "font-weight: 500; font-size: 30px;" }
-        Notre Bibilothèque
+        =t('ourlibrary')
       .col-lg-7
 
 %section.no-padding
@@ -28,9 +28,9 @@
           .row{ :style => "width: 70%; margin: auto;" }
             - @random_ids.each do |product_id|
               -# Produit
-              .col-lg-4.col-sm-6{ :style => "margin-bottom:2%;" }
+              .col-lg-4.col-sm-6.product{ :style => "margin-bottom:2%;" }
                 - @product = Produit.find(product_id)
-                .row{ :style => "text-align:center; font-size:25px;" }
+                .row.name
                   = @product.nom
                 .row{ :style => "text-align:center;" }
                   = image_tag @product.product_image, :class =>'product_img'

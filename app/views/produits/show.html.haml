@@ -1,5 +1,3 @@
-%p#notice= notice
-
 .container
   .row
     %center
@@ -30,9 +28,9 @@
           = @produit.ean
       %p
         -if (current_user)
-          = link_to 'Louer', new_user_produit_location_url(user_id: current_user, produit_id: @produit.id)
+          = link_to t('locate'), new_user_produit_location_url(user_id: current_user, produit_id: @produit.id)
         -else
-          = link_to 'Louer', new_user_session_url
+          = link_to t('locate'), new_user_session_url
 
   .row
     .h1
@@ -50,8 +48,8 @@
           -# Si l'utilisateur connecté est celui qui à écrit le commentaire
           -if(current_user && comment.user_id == current_user.id || current_user && current_user == admin_user)
             %br
-            %td= link_to 'Edit', edit_produit_comment_path(comment.produit, comment), class: " btn btn-warning"
-            %td= link_to 'Destroy', [comment.produit, comment], method: :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"
+            %td= link_to t('edit'), edit  _produit_comment_path(comment.produit, comment), class: " btn btn-warning"
+            %td= link_to t('destroy'), [comment.produit, comment], method: :delete, :data => { :confirm => t('areyousure') }, class: "btn btn-danger"
         .col-md-9
           %p
             = comment.body

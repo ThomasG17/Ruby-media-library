@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 20160706213130) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "carts", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id", using: :btree
+
   create_table "comments", force: :cascade do |t|
     t.text    "body",       limit: 65535
     t.integer "user_id",    limit: 4
@@ -69,7 +77,7 @@ ActiveRecord::Schema.define(version: 20160706213130) do
 
   create_table "produits", force: :cascade do |t|
     t.string   "nom",                        limit: 255
-    t.integer  "disponibilite",              limit: 4
+    t.boolean  "disponibilite"
     t.text     "description",                limit: 65535
     t.string   "ean",                        limit: 255
     t.integer  "type_id",                    limit: 4
@@ -115,8 +123,11 @@ ActiveRecord::Schema.define(version: 20160706213130) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["firstname"], name: "index_users_on_firstname", unique: true, using: :btree
+  add_index "users", ["lastname"], name: "index_users_on_lastname", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "carts", "users"
   add_foreign_key "comments", "produits"
   add_foreign_key "comments", "users"
   add_foreign_key "locations", "produits"

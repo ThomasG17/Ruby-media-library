@@ -15,6 +15,6 @@
 				.btn-group.cart
 					%button.btn.btn-primary.center-block
 						-if (current_user)
-		          = link_to 'Louer', new_user_produit_location_url(user_id: current_user, produit_id: @produit.id)
+		          = link_to t('locate'), new_user_produit_location_url(user_id: current_user, produit_id: @produit.id)
 		        -else
-		          = link_to 'Louer', new_user_session_url
+		          = link_to t('locate'), new_user_session_url

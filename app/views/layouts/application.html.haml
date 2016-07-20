@@ -11,7 +11,7 @@
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-center
             %li
-              = link_to('Accueil', root_path)
+              = link_to(t('home'), root_path)
             -# Afficher uniquement les catégories possédant des produits
             - unless(@types.nil?)
               - @types.each do |type|
@@ -28,17 +28,17 @@
           %ul.nav.navbar-nav.navbar-right
             -if(!user_signed_in?)
               %li
-                = link_to('Connexion', new_user_session_url)
+                = link_to(t('signin'), new_user_session_url)
               %li
-                = link_to('Enregistrement', new_user_registration_url)
+                = link_to(t('signup'), new_user_registration_url)
             -else
               -if(current_user)
                 %li
-                  = link_to('Profil', edit_user_registration_url)
+                  = link_to(t('profil'), edit_user_registration_url)
                 %li
-                  = link_to('Locations', list_locations_user_url(current_user))
+                  = link_to(t('hires'), list_locations_user_url(current_user))
               %li
-                = link_to('Sign out', destroy_user_session_url, method: :delete)
+                = link_to(t('signout'), destroy_user_session_url, method: :delete)
     %p.notice= notice
     %p.alert= alert
     = yield

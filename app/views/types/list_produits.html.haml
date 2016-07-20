@@ -1,7 +1,7 @@
 - @produits.each do |produit|
   -# Produit
   .list-group-item
-    .col-sm-2.list-text-group
+    .col-sm-2.list-text-group.name
       = produit.nom
     .col-sm-1.list-text-dispo
       = produit.disponibilite
@@ -19,4 +19,5 @@
           = link_to 'Louer', new_user_session_url, class:"btn btn-info list-group-a"
     -else
       .col-sm-2.list-text-group
-        .list-not-available Not available
+        %p
+          = t('notavailable')

@@ -1,11 +1,11 @@
 %h1 Listing locations
 .list-group-item{ :style => "background-color:#2B7FA7; height:13%;" }
-  .col-sm-4.list-title-location
-    Date Début
-  .col-sm-4.list-title-location
-    Date Fin
-  .col-sm-4.list-title-location
-    Nom du produit
+  .col-sm-2.list-title-location
+    =t('startdate')
+  .col-sm-2.list-title-location
+    =t('enddate')
+  .col-sm-2.list-title-location
+    =t('productname')
   .col-sm-6.list-title-location
 -if @locations.count > 0
   - @locations.each do |location|
