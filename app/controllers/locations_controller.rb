@@ -6,9 +6,24 @@ class LocationsController < ApplicationController
     @location = Location.new(produit_id: params[:produit_id], user_id: params[:user_id], date_debut: Date.today, date_fin: Date.today + 15)
     @location.save
     if @location.save
-       redirect_to list_locations_user_url(params[:user_id]), notice: 'Location was successfully created.'
+      @produit = Produit.find(params[:produit_id])
+      @produit.disponibilite = @produit.disponibilite - 1
+      @produit.save
+      redirect_to list_locations_user_url(params[:user_id]), notice: 'Location was successfully created.'
     else
        render :new
+    end
+  end
+
+  def back
+    @location = Location.find(params[:id])
+    @location.back = true
+    @location.save
+    if @location.save
+      @product = Produit.find(@location.id)
+      @product.disponibilite = @product.disponibilite + 1
+      @product.save
+      redirect_to root_url, notice: 'Location was successfully back.'
     end
   end
 
@@ -63,6 +78,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:date_debut, :date_fin, :produit_id, :user_id)
+      params.require(:location).permit(:date_debut, :date_fin, :produit_id, :user_id, :back)
     end
 end

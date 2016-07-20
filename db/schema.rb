@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706213130) do
+ActiveRecord::Schema.define(version: 20160720143852) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -58,10 +58,11 @@ ActiveRecord::Schema.define(version: 20160706213130) do
   create_table "locations", force: :cascade do |t|
     t.datetime "date_debut"
     t.datetime "date_fin"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "produit_id", limit: 4
     t.integer  "user_id",    limit: 4
+    t.boolean  "back",                 default: false
   end
 
   add_index "locations", ["produit_id"], name: "index_locations_on_produit_id", using: :btree

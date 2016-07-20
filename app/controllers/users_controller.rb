@@ -4,6 +4,6 @@ class UsersController < ActionController::Base
   def list_locations
     @user_id = params[:id]
     @user = User.find(@user_id)
-    @locations = @user.locations
+    @locations = @user.locations.where(back: false)
   end
 end

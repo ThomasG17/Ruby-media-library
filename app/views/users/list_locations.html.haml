@@ -1,20 +1,22 @@
 %h1 Listing locations
 .list-group-item{ :style => "background-color:#2B7FA7; height:13%;" }
-  .col-sm-4.list-title-location
+  .col-sm-3.list-title-location
     Date Début
-  .col-sm-4.list-title-location
+  .col-sm-3.list-title-location
     Date Fin
-  .col-sm-4.list-title-location
+  .col-sm-3.list-title-location
     Nom du produit
   .col-sm-6.list-title-location
 -if @locations.count > 0
   - @locations.each do |location|
     .list-group-item
-      .col-sm-4.list-text-location
+      .col-sm-3.list-text-location
         = location.date_debut.strftime("%d/%m/%Y")
-      .col-sm-4.list-text-location
+      .col-sm-3.list-text-location
         = location.date_fin.strftime("%d/%m/%Y")
-      .col-sm-4.list-text-location
+      .col-sm-3.list-text-location
         = location.produit.nil? ? "Vide" : location.produit.nom
+      .col-sm-3.list-location-back
+        =link_to "back location", back_location_url(produit_id: location.produit_id),html_options = {class:"btn btn-default"}
 - else
   Aucune locations
