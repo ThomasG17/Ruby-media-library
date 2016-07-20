@@ -48,7 +48,7 @@
           -# Si l'utilisateur connecté est celui qui à écrit le commentaire
           -if(current_user && comment.user_id == current_user.id || current_user && current_user == admin_user)
             %br
-            %td= link_to t('edit'), edit  _produit_comment_path(comment.produit, comment), class: " btn btn-warning"
+            %td= link_to t('edit'), edit_produit_comment_path(comment.produit, comment), class: " btn btn-warning"
             %td= link_to t('destroy'), [comment.produit, comment], method: :delete, :data => { :confirm => t('areyousure') }, class: "btn btn-danger"
         .col-md-9
           %p
