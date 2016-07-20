@@ -33,7 +33,7 @@
                 .row{ :style => "text-align:center; font-size:25px;" }
                   = @product.nom
                 .row{ :style => "text-align:center;" }
-                  = image_tag @product.product_image
+                  = image_tag @product.product_image, :class =>'product_img'
                 .row.link-home{ :style => "text-align:center;" }
                   = link_to 'Rent', produit_rent_path(@product)
                   = link_to 'Show', @product

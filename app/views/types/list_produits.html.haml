@@ -8,10 +8,10 @@
     .col-sm-3{ :style => "padding-top:3%;" }
       = produit.description
     .col-sm-2
-      = image_tag produit.product_image
+      = image_tag produit.product_image, :class =>'product_img'
     .col-sm-2{ :style => "padding-top:3%;" }
       = link_to 'Show', produit, class:"btn btn-info list-group-a"
-    -if(produit.disponibilite > 0)
+    -if(produit.disponibilite == true)
       .col-sm-2.list-rent
         -if (current_user)
           = link_to 'Louer', new_user_produit_location_url(user_id: current_user, produit_id: produit.id)
